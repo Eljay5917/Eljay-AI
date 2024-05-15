@@ -58,3 +58,4 @@ def commandTaking():
         
     return query
     
+wishme()
