@@ -11,21 +11,23 @@ def speak(audio):
     
 def time():
     Time=datetime.datetime.now().strftime("%I:%M:%S") 
+    speak("the current time is")
     speak(Time)
 
 def date():
     year=int(datetime.datetime.now().year)
     month=int(datetime.datetime.now().month)
     day=int(datetime.datetime.now().day)
+    speak('the current date is')
     speak(day)
     speak(month)
     speak(year)
     
 def wishme():
     speak('welcome back sir')
-    speak("the current time is")
+   
     time()
-    speak('the current date is')
+    
     date()
     hour=datetime.datetime.now().hour
     if hour>=6 and hour<=12:
@@ -37,7 +39,7 @@ def wishme():
         
     speak('Eljay at your service please tell me how i can help you')    
     
-def commandTaking():
+def takeCommand():
     r= sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening ......")
@@ -58,4 +60,23 @@ def commandTaking():
         
     return query
     
-wishme()
+if __name__ =="__main__":
+    wishme = ()
+    while True:
+        query=takeCommand().lower() 
+        
+        if 'time' in query:
+            time()
+        elif 'date' in query:
+            date()
+        elif if "wikipedia" in query:
+            speak('searching.....')
+            query= query.replace('wikipedia',"")
+            result= wikipedia.search(query,sentences=2)
+            print(result)
+            speak(result)
+        elif 'oflline' or 'sleep' or 'shutdown' in query:
+            quit()
+        elif 'lg' or "eljay" in query:
+            wishme()
+        
